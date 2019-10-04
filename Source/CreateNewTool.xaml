@@ -1,0 +1,24 @@
+﻿<Window x:Class="LevelEditor.CreateNewTool"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LevelEditor"
+        mc:Ignorable="d"
+        SizeToContent="WidthAndHeight"
+        Title="create new tool" ResizeMode="NoResize">
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static local:CreateNewTool.EnterCommand}" Executed="Button_Click"/>
+    </Window.CommandBindings>
+    <DockPanel>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+            <Label Content="Name:" VerticalContentAlignment="Center"/>
+            <TextBox Width="50" Text="{Binding ToolName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center"/>
+            <Label Content="Color:" VerticalContentAlignment="Center"/>
+            <Rectangle Height="20" Width="20" Stroke="Black" Fill="{Binding ToolColor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="3"/>
+            <Label Content="Tool Tip:" VerticalContentAlignment="Center"/>
+            <TextBox Width="50" Text="{Binding ToolToolTip, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center"/>
+        </StackPanel>
+        <Button Content="OK" DockPanel.Dock="Bottom" Click="Button_Click"/>
+    </DockPanel>
+</Window>
